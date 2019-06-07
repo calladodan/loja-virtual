@@ -1,0 +1,19 @@
+<header>
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-end">
+      <%= link_to "loja virtual", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Início", root_path, class: "navbar-item button" %></li>
+          <% if usuario_signed_in? %>
+            <li><%= link_to "Meu Carrinho", "#", class: "navbar-item button" %></li>
+            <li><%= link_to "Sair", destroy_usuario_session_path, class: "navbar-item" %></li>
+          <% else %>
+            <li><%= link_to "Entrar", new_usuario_session_path, class: "navbar-item button" %></li>
+            <li><%= link_to "Criar conta", new_usuario_registration_path, class: "navbar-item button" %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

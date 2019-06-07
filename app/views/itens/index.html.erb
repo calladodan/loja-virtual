@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Itens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nome</th>
+     <% if can? :manage, Item %>
+      <th>Preco custo</th>
+     <% end %>
+      <th>Quantidade</th>
+      <th>Preço venda</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @itens.each do |item| %>
+      <tr>
+        <td> <%= image_tag(item.produto.imagem_url(:thumb)) %> </td>
+        <% if can? :manage, Item %>
+          <td><%= item.preco_custo %></td>
+        <% end %>
+        <td><%= item.produto.nome %></td>
+        <td><%= item.quantidade %></td>
+        <td><%= item.preco_venda %></td>
+        <td><%= link_to 'Show', item %></td>
+        <% if can? :manage, Item %>
+          <td><%= link_to 'Edit', edit_item_path(item) %></td>
+          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>

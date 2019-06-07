@@ -1,0 +1,37 @@
+<%= form_with(model: item_carrinho, local: true) do |form| %>
+  <% if item_carrinho.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item_carrinho.errors.count, "error") %> prohibited this item_carrinho from being saved:</h2>
+
+      <ul>
+        <% item_carrinho.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :item_id %>
+    <%= form.text_field :item_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrinho_id %>
+    <%= form.text_field :carrinho_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qtd_adicionada %>
+    <%= form.number_field :qtd_adicionada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qtd_reservada %>
+    <%= form.number_field :qtd_reservada %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

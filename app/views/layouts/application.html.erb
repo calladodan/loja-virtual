@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LojaVirtual</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'item', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/header' %>
+    <%= yield %>
+
+    <% if current_usuario %>
+    <div class="carrinho">
+      <div >
+        <span>0</span> Produtos no carrinho
+      </div>
+      <ul>
+      </ul>
+      <div>
+        <a href="#0" >Vazio</a>
+        <a href="#0">Finalizar - <span>R$0</span></a>
+      </div>
+    </div>
+    <% end  %>
+
+    <div class="container">
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>

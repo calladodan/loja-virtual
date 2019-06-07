@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Produto:</strong>
+  <%= @item.produto.nome %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @item.quantidade %>
+</p>
+
+<% if can? :manage, Item %>
+  <p>
+    <strong>Preco custo:</strong>
+    <%= @item.preco_custo %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Preco venda:</strong>
+  <%= @item.preco_venda %>
+</p>
+
+
+<div class="feature-image">
+  <%= image_tag(@item.produto.imagem_url(:thumb)) %>
+</div>
+
+<%= link_to 'Adicionar ao carrinho', 'javascript:adiciona_carrinho()', data: @item.id  %>
+
+<% if can? :manage, Item %>
+  <%= link_to 'Edit', edit_item_path(@item) %>
+<% end %>
+<%= link_to 'Back', itens_path %>

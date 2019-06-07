@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @item_carrinho.item_id %>
+</p>
+
+<p>
+  <strong>Carrinho:</strong>
+  <%= @item_carrinho.carrinho_id %>
+</p>
+
+<p>
+  <strong>Qtd adicionada:</strong>
+  <%= @item_carrinho.qtd_adicionada %>
+</p>
+
+<p>
+  <strong>Qtd reservada:</strong>
+  <%= @item_carrinho.qtd_reservada %>
+</p>
+
+<%= link_to 'Edit', edit_item_carrinho_path(@item_carrinho) %> |
+<%= link_to 'Back', itens_carrinho_path %>
